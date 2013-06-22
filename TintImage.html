@@ -34,9 +34,10 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
   
   <script>
+  	var canvas;
   	function tintImage(imgElement,tintColor) {
         // create hidden canvas (using image dimensions)
-        var canvas = document.createElement("canvas");
+        canvas = document.createElement("canvas");
         canvas.width = imgElement.offsetWidth;
         canvas.height = imgElement.offsetHeight;
 
@@ -69,6 +70,13 @@
         // replace image source with canvas data
         imgElement.src = canvas.toDataURL();
     }
+    function reset(imgElement)
+    {
+    	// var context = imgElement.getContext("2d");
+    	// context.clearRect(0,0,canvas.width,canvas.height);
+    	// reset image source with url
+        imgElement.src = "img/vr/5th_ave_1.jpg";
+    }
   </script>
 </head>
 
@@ -82,6 +90,7 @@
 		<img id="myImage" src="img/vr/5th_ave_1.jpg"/>
 		<button type="button" onclick="tintImage(document.getElementById('myImage'),'#550000')">RED</button>
 		<button type="button" onclick="tintImage(document.getElementById('myImage'),'#000055')">BLUE</button>
+		<button type="button" onclick="reset(document.getElementById('myImage'))">RESET</button>
     </div>
     <footer>
 
